@@ -1,0 +1,172 @@
+$primary-font: 'Raleway', sans-serif;
+$primary-color: #621be5;
+$dark-color: black;
+$light-color: white;
+
+$screen-xs-max: 767px;
+$screen-sm-min: 768px;
+$screen-sm-max: 991px;
+$screen-md-min: 992px;
+$screen-md-max: 1199px;
+$screen-lg-min: 1200px;
+
+body {
+  font-family: $primary-font;
+  color: $primary-color;
+}
+
+a {
+  color: $primary-color;
+
+  &:hover, &:focus {
+    color: $dark-color;
+    text-decoration: none;
+  }
+}
+
+input.btn {
+  color: $primary-color;
+  margin-top: 10px;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+.navbar-header {
+  background-color: rgba(256, 256, 256, 0.8);
+
+  .navbar-brand {
+    // background-color: $light-color;
+    padding-left: 15px;
+    font-weight: 700;
+  }
+}
+
+.nav > li > a {
+  padding: 10px;
+
+  &:hover, &:focus {
+    background-color: transparent;
+  }
+}
+
+.main-area {
+  margin-top: 50px
+}
+
+.main-image {
+  max-width: 100%;
+  max-height: 50em;
+}
+
+.navbar-toggle {
+  .icon-bar {
+    background-color: $primary-color;
+  }
+
+  &:hover {
+    .icon-bar {
+      background-color: $dark-color;
+    }
+  }
+}
+
+.galleries {
+  margin-bottom: 40px;
+  margin-top: 40px;
+
+  .gallery {
+    padding-top: 15px;
+
+    @media (max-width: $screen-xs-max) {
+      height: 48vw;
+    }
+
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+      height: 40vw;
+    }
+
+    @media (min-width: $screen-md-min) {
+      height: 26vw;
+    }
+  }
+
+  .gallery-left {
+    padding-right: 7.5px;
+
+  }
+  .gallery-right {
+    padding-left: 7.5px;
+  }
+
+
+  .gallery-image {
+    height: 100%
+  }
+}
+
+.mg-gallery-item {
+  position: relative;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+// borrowed styles
+#sidebar {
+  height: 100%;
+  padding-right: 0;
+  padding-top: 45px;
+  padding-left: 5px;
+}
+
+#sidebar .nav {
+  width: 95%;
+}
+
+/* collapsed sidebar styles */
+@media screen and (max-width: $screen-xs-max) {
+  .row-offcanvas {
+    position: relative;
+    -webkit-transition: all 0.25s ease-out;
+    -moz-transition: all 0.25s ease-out;
+    transition: all 0.25s ease-out;
+  }
+  .row-offcanvas-right
+  .sidebar-offcanvas {
+    right: -35.6%;
+  }
+
+  .row-offcanvas-left
+  .sidebar-offcanvas {
+    left: -35.6%;
+  }
+  .row-offcanvas-right.active {
+    right: 35.6%;
+  }
+  .row-offcanvas-left.active {
+    left: 35.6%;
+  }
+  .sidebar-offcanvas {
+    position: absolute;
+    top: 0;
+    width: 35.6%;
+  }
+
+  #sidebar {
+    padding-left: 15px;
+  }
+}
+
+.contact {
+  form {
+    margin-bottom: 20px;
+  }
+
+  margin-bottom: 10px;
+}
+
+.artist-statement {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,17 @@
+# notifications config provided by DatoCMS
+# notifications:
+#   webhooks:
+#   - https://webhooks.datocms.com/19af4df8a78ff5ef1a7b/deploy-results
+language: ruby
+rvm:
+  - 2.4.0
+cache: bundler
+branches:
+  only:
+  - master
+deploy:
+  - provider: script
+    script: rvm $TRAVIS_RUBY_VERSION do ./deploy.sh production
+    on:
+      branch: master
+

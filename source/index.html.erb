@@ -1,0 +1,25 @@
+---
+title: viva fraser
+active: home
+---
+
+<div>
+  <%= image_tag dato.homepage.main_image.url(h: 700, fit: :crop),
+    alt: dato.homepage.main_image.alt, class: 'main-image' %>
+</div>
+<div class='row galleries'>
+  <div class='gallery gallery-left col-xs-6 col-md-offset-2 col-md-4'>
+    <a href='/landscapes.html'>
+      <%= image_tag dato.homepage.landscape_image.url(h: 400, fit: :crop),
+        alt: dato.homepage.landscape_image.alt, class: 'gallery-image' %>
+      <p class='text-center'>landscapes</p>
+    </a>
+  </div>
+  <div class='gallery gallery-right col-xs-6 col-md-4'>
+    <a href='/miniatures.html'>
+      <%= image_tag dato.homepage.miniature_image.url(h: 400, fit: :crop),
+        alt: dato.homepage.landscape_image.alt, class: 'gallery-image' %>
+      <p class='text-center'>miniatures</p>
+    </a>
+  </div>
+</div>

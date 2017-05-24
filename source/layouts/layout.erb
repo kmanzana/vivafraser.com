@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv='x-ua-compatible' content='ie=edge'>
+    <meta name='viewport'
+          content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <title><%= current_page.data.title || 'viva fraser' %></title>
+    <%= stylesheet_link_tag 'bootstrap.min', 'site' %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Raleway' %>
+  </head>
+  <body>
+    <div class="page-container">
+      <div class="navbar navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="offcanvas" data-target=".sidebar-nav">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><%= '> ' if current_page.data.active == 'home' %>viva fraser</a>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row row-offcanvas row-offcanvas-left">
+          <div class="col-xs-4 col-sm-2 col-md-1 sidebar-offcanvas" id="sidebar" role="navigation">
+            <ul class="nav">
+              <!-- <li class="active"><a href="/">Home</a></li> -->
+              <li><a href="/landscapes.html"><%= '> ' if current_page.data.active == 'landscapes' %>landscapes</a></li>
+              <li><a href="/miniatures.html"><%= '> ' if current_page.data.active == 'miniatures' %>miniatures</a></li>
+              <li><a href="/info.html"><%= '> ' if current_page.data.active == 'info' %>info</a></li>
+            </ul>
+          </div>
+
+          <div class="main-area col-xs-12 col-sm-10 col-md-11">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%= javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js',
+                               'bootstrap.min',
+                               'modernizer.shuffle.min',
+                               'jquery.shuffle.min',
+                               'site' %>
+
+    <script type="text/javascript">
+      $(window).load(function () {
+        /*
+         * Gallery Filter with Shuffle
+         */
+        var $grid = $('#mg-grid'),
+          $sizer = $grid.find('.shuffle__sizer'),
+          $filterType = $('#mg-filter input[name="filter"]');
+
+        $grid.shuffle({
+          itemSelector: '.mg-gallery-item',
+          sizer: $sizer
+        });
+
+        $grid.shuffle('shuffle', $('#mg-filter input[name="filter"]:checked').val());
+
+        $('label.btn-main').removeClass('btn-main');
+        $('input[name="filter"]:checked').parent().addClass('btn-main');
+
+        $filterType.change(function(e) {
+          var group = $('#mg-filter input[name="filter"]:checked').val();
+
+          $grid.shuffle('shuffle', group);
+
+          $('label.btn-main').removeClass('btn-main');
+          $('input[name="filter"]:checked').parent().addClass('btn-main');
+        });
+      });
+    </script>
+  </body>
+</html>

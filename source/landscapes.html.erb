@@ -1,0 +1,20 @@
+---
+title: viva fraser | landscapes
+active: landscapes
+---
+
+<div class=row id=mg-grid>
+  <% dato.landscape.landscape_images.each do |image| %>
+    <figure class='col-md-4 mg-gallery-item'>
+      <% link_to image.url, title: image.alt, 'data-lightbox-gallery': :rooms do %>
+        <%= image_tag image.url(w: 500, fit: :crop), alt: image.alt, class: 'img-responsive' %>
+        <span class=mg-gallery-overlayer>
+          <i class='fa fa-search-plus'></i>
+        </span>
+      <% end %>
+    </figure>
+  <% end %>
+</div>
+
+
+
